@@ -4,6 +4,9 @@ import org.negro.compiler.InMemoryJavaCompiler;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.instrument.InstrumentationSavingAgent;
+
+
 
 @SpringBootApplication
 public class JavaAttestationMicroApplication {
@@ -12,10 +15,9 @@ public class JavaAttestationMicroApplication {
         SpringApplication.run(JavaAttestationMicroApplication.class, args);
     }
 
-
     @Bean
     public InMemoryJavaCompiler inMemoryJavaCompiler(){
-        return new InMemoryJavaCompiler(Agent.instrument);
+        return new InMemoryJavaCompiler(InstrumentationSavingAgent.getInstrumentation() );
     }
 
 }

@@ -2,8 +2,8 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.2.4'
     id 'io.spring.dependency-management' version '1.1.4'
-    id 'org.graalvm.buildtools.native' version '0.9.28'
 }
+
 
 group = 'org.nakedprogrammer'
 version = '0.0.1-SNAPSHOT'
@@ -11,6 +11,8 @@ version = '0.0.1-SNAPSHOT'
 java {
     sourceCompatibility = '17'
 }
+
+
 
 configurations {
     compileOnly {
@@ -33,13 +35,15 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.cloud:spring-cloud-starter'
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
-    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    //implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    implementation 'junit:junit:4.13.1'
     compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+    //developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+    implementation 'org.springframework:spring-instrument:6.1.5'
     implementation name: 'compiler-0.0.1'
 }
 
