@@ -17,7 +17,7 @@ public class AttestationController {
     @PostMapping("")
     public String postQuest(@RequestBody Map<String, String> body) throws Exception {
         try {
-            return attestationService.attest(body.get("classname"), body.get("sourceCode"),
+            return attestationService.attest(body.get("className"), body.get("sourceCode"),
                                              body.get("testSourceCode"), Integer.parseInt(body.get("timelimit")) );
         }catch(CompilationException e) {
             return e.getMessage();
